@@ -8,7 +8,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-public class ServiceAdminPageScript implements ISeleniumScript{
+public class ServiceAdminPageScript implements ISeleniumScript {
     @Override
     public void run(WebDriver driver) {
         // Initialize the loadable component of the page

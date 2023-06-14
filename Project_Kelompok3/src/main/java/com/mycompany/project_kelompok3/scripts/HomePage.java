@@ -4,27 +4,16 @@
  */
 package com.mycompany.project_kelompok3.scripts;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 /**
  *
  * @author Jonathan Aurelius
  */
-public class HomePage implements ISeleniumScript{
+public class HomePage implements ISeleniumScript {
     @Override
     public void run(WebDriver driver){
       

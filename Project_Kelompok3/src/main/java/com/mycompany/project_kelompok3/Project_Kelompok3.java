@@ -4,7 +4,6 @@
 
 package com.mycompany.project_kelompok3;
 
-import com.mycompany.project_kelompok3.scripts.HomePage;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,6 +11,10 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import com.mycompany.project_kelompok3.scripts.HomePage;
+import com.mycompany.project_kelompok3.scripts.ServiceAdminPageScript;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,11 +30,8 @@ import org.openqa.selenium.JavascriptExecutor;
 public class Project_Kelompok3 {
 
     public static void main(String[] args) {
-        System.setProperty(
-                "webdriver.chrome.drivers", 
-                "D:\\kuliah\\SM6\\soft test\\chromedriver\\chromedriver.exe"
-        );
-        
+//        System.setProperty("webdriver.chrome.driver", "D:\\ChromeDriver\\chromedriver.exe");
+
        String[][] data = null;
        WebDriver driver = new ChromeDriver();
 
@@ -60,43 +60,43 @@ public class Project_Kelompok3 {
         String email =data[1][1].toString();
         String password =data[2][1].toString();
         driver.get("https://gruplm.com/");
-                
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollTo(0, arguments[0]);", 4000);
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            // Handle the exception
-        }
-//        
-        driver.findElement(By.xpath("//a[@href='#lifetime']")).click();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            // Handle the exception
-        }
-        
-        js.executeScript("window.scrollTo(0, arguments[0]);", 5100);
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            // Handle the exception
-        }
-        
-        driver.findElement(By.xpath("//a[@href='https://gruplm.com/registration/step-1/regular/21' and @class='main-btn']")).click();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            // Handle the exception
-        }
 
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        js.executeScript("window.scrollTo(0, arguments[0]);", 4000);
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            // Handle the exception
+//        }
+////
+//        driver.findElement(By.xpath("//a[@href='#lifetime']")).click();
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            // Handle the exception
+//        }
+//
+//        js.executeScript("window.scrollTo(0, arguments[0]);", 5100);
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            // Handle the exception
+//        }
+//
+//        driver.findElement(By.xpath("//a[@href='https://gruplm.com/registration/step-1/regular/21' and @class='main-btn']")).click();
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            // Handle the exception
+//        }
+//
 //        js.executeScript("window.scrollTo(0, arguments[0]);", 400);
 //        try {
 //            Thread.sleep(1000);
 //        } catch (InterruptedException e) {
 //            // Handle the exception
 //        }
-        
+//
 //        WebElement usernameField = driver.findElement(By.xpath("//input[@name='username']"));
 //        usernameField.sendKeys(username);
 //        try {
@@ -111,7 +111,7 @@ public class Project_Kelompok3 {
 //        } catch (InterruptedException e) {
 //            // Handle the exception
 //        }
-//        
+//
 //        WebElement passField = driver.findElement(By.xpath("//input[@name='password']"));
 //        passField.sendKeys(password);
 //        try {
@@ -119,7 +119,7 @@ public class Project_Kelompok3 {
 //        } catch (InterruptedException e) {
 //            // Handle the exception
 //        }
-//        
+//
 //        WebElement passcField = driver.findElement(By.xpath("//input[@name='password_confirmation']"));
 //        passcField.sendKeys(password);
 //        try {
@@ -127,17 +127,17 @@ public class Project_Kelompok3 {
 //        } catch (InterruptedException e) {
 //            // Handle the exception
 //        }
-//        
+//
 //        js.executeScript("window.scrollTo(0, arguments[0]);", 550);
 //        try {
 //            Thread.sleep(1000);
 //        } catch (InterruptedException e) {
 //            // Handle the exception
 //        }
-//        
+//
 //        driver.findElement(By.xpath("//button[@class='main-btn' and text()='continue']")).click();
-        
-
+//
+//
          WebDriverWait wait = new WebDriverWait(driver, 10);
 //        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h1[contains(text(), 'Checkout')]")));
 //        try {
@@ -145,14 +145,14 @@ public class Project_Kelompok3 {
 //        } catch (InterruptedException e) {
 //            // Handle the exception
 //        }
-//        
+//
 //        js.executeScript("window.scrollTo(0, arguments[0]);", 500);
 //        try {
 //            Thread.sleep(1000);
 //        } catch (InterruptedException e) {
 //            // Handle the exception
 //        }
-//        
+//
 //        driver.findElement(By.xpath("//input[@name='first_name']")).sendKeys("Hezron");
 //         try {
 //            Thread.sleep(500);
@@ -237,12 +237,12 @@ public class Project_Kelompok3 {
 //        } catch (InterruptedException e) {
 //            // Handle the exception
 //        }
-//        driver.findElement(By.xpath("//li[@class='option' and @data-value='Flutterwave']")).click();  
+//        driver.findElement(By.xpath("//li[@class='option' and @data-value='Flutterwave']")).click();
 //        try {
 //            Thread.sleep(1000);
 //        } catch (InterruptedException e) {
 //            // Handle the exception
-//        }      
+//        }
 //        driver.findElement(By.xpath("//button[@id='confirmBtn' and @class='main-btn w-100 mt-4']")).click();
 //
 //        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h1[contains(text(), 'Payment Success !')]")));
@@ -252,47 +252,71 @@ public class Project_Kelompok3 {
 //            // Handle the exception
 //        }
 //        driver.findElement(By.xpath("//a[text()='Go to Home']")).click();
-//        
+//
 //        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h1[contains(text(), 'Minimize the time, it takes to initiate a relationship between you and the customer.')]")));
 //        try {
 //            Thread.sleep(1000);
 //        } catch (InterruptedException e) {
 //            // Handle the exception
 //        }
-//        driver.findElement(By.xpath("//div[@class='navbar-toggler']")).click();
-//        try {
-//            Thread.sleep(1000);
-//        } catch (InterruptedException e) {
-//            // Handle the exception
-//        }
-       
-        driver.findElement(By.xpath("//a[text()='Login']")).click();
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h1[contains(text(), 'Login')]")));
+
+        Boolean loggedIn = true;
         try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            // Handle the exception
+            WebElement dashboardNavigation = driver.findElement(By.xpath("a[text()='Dashboard']"));
+            wait.until(ExpectedConditions.visibilityOf(dashboardNavigation));
+            dashboardNavigation.click();
         }
-        js.executeScript("window.scrollTo(0, arguments[0]);", 350);
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            // Handle the exception
+        catch (Exception err) {
+            loggedIn = false;
         }
-        driver.findElement(By.xpath("//input[@type='email' and @name='email']")).sendKeys(email); 
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            // Handle the exception
+
+        if (!loggedIn) {
+            WebElement loginNavigationBurger = driver.findElement(By.xpath("//div[@class='navbar-toggler']"));
+            wait.until(ExpectedConditions.visibilityOf(loginNavigationBurger));
+            loginNavigationBurger.click();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                // Handle the exception
+            }
+
+            WebElement loginNavigation = driver.findElement(By.xpath("//a[text()='Login']"));
+
+            wait.until(ExpectedConditions.visibilityOf(loginNavigation));
+            wait.until(ExpectedConditions.elementToBeClickable(loginNavigation));
+
+            loginNavigation.click();
+
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h1[contains(text(), 'Login')]")));
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                // Handle the exception
+            }
+            js.executeScript("window.scrollTo(0, arguments[0]);", 350);
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                // Handle the exception
+            }
+            driver.findElement(By.xpath("//input[@type='email' and @name='email']")).sendKeys(email);
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                // Handle the exception
+            }
+            driver.findElement(By.xpath("//input[@type='password' and @name='password']")).sendKeys(password);
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                // Handle the exception
+            }
+            driver.findElement(By.xpath("//button[contains(text(), 'LOG IN')]")).click();
         }
-        driver.findElement(By.xpath("//input[@type='password' and @name='password']")).sendKeys(password); 
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            // Handle the exception
-        }
-        driver.findElement(By.xpath("//button[contains(text(), 'LOG IN')]")).click();
-        
+
+//        ServiceAdminPageScript serviceAdminPageScript = new ServiceAdminPageScript();
+//        serviceAdminPageScript.run(driver);
+
         HomePage homePage = new HomePage();
         homePage.run(driver);
     }
