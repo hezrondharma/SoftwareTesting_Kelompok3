@@ -1,5 +1,7 @@
 package com.mycompany.project_kelompok3.components;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,7 +29,7 @@ public class ServiceAdminPage extends LoadableComponent<ServiceAdminPage> {
     @FindBy(name = "name")
     private WebElement serviceNameInput;
 
-    @FindBy(xpath = "//textarea[@class='note-codable']")
+    @FindBy(xpath = "//div[@role='textbox'][@class='note-editable card-block']")
     private WebElement serviceContentInput;
 
     @FindBy(name = "serial_number")
@@ -39,7 +41,7 @@ public class ServiceAdminPage extends LoadableComponent<ServiceAdminPage> {
     @FindBy(xpath = "//input[@name = 'detail_page']")
     private List<WebElement> serviceEnabledInputs;
 
-    @FindBy(name = "meta_keywords")
+    @FindBy(xpath = "//div[@class='bootstrap-tagsinput']")
     private WebElement serviceMetaInput;
 
     @FindBy(name = "meta_description")
@@ -64,6 +66,64 @@ public class ServiceAdminPage extends LoadableComponent<ServiceAdminPage> {
     public void selectImage(String imagePath) {
         wait.until(ExpectedConditions.visibilityOf(serviceImageInput));
         serviceImageInput.sendKeys(imagePath);
+    }
+
+    public void selectServiceLanguage(int index) {
+        List<WebElement> options = serviceLanguageInput.findElements(By.tagName("option"));
+
+        wait.until(ExpectedConditions.visibilityOf(serviceLanguageInput));
+        serviceLanguageInput.click();
+
+        wait.until(ExpectedConditions.visibilityOf(options.get(index)));
+        options.get(index).click();
+    }
+
+    public void inputServiceName(String name) {
+        wait.until(ExpectedConditions.visibilityOf(serviceNameInput));
+        serviceNameInput.sendKeys(name);
+    }
+
+    public void inputServiceContent(String content) {
+        wait.until(ExpectedConditions.visibilityOf(serviceContentInput));
+        serviceContentInput.sendKeys(content);
+    }
+
+    public void inputSerial(int index) {
+        wait.until(ExpectedConditions.visibilityOf(serviceSerialInput));
+        serviceSerialInput.sendKeys(Integer.toString(index));
+    }
+
+    public void isFeatured(Boolean state) {
+        if ((!state && serviceFeatured.isSelected()) || (state && !serviceFeatured.isSelected())) {
+            wait.until(ExpectedConditions.visibilityOf(serviceFeatured));
+            wait.until(ExpectedConditions.elementToBeClickable(serviceFeatured));
+            serviceFeatured.click();
+        }
+    }
+
+    public void isEnabled(Boolean state) {
+        if (state) {
+            wait.until(ExpectedConditions.visibilityOf(serviceEnabledInputs.get(0)));
+            wait.until(ExpectedConditions.elementToBeClickable(serviceEnabledInputs.get(0)));
+            serviceEnabledInputs.get(0).click();
+        }
+        else {
+            wait.until(ExpectedConditions.visibilityOf(serviceEnabledInputs.get(0)));
+            wait.until(ExpectedConditions.elementToBeClickable(serviceEnabledInputs.get(0)));
+            serviceEnabledInputs.get(1).click();
+        }
+    }
+
+    public void inputMetaKeywords(String keywords) {
+        wait.until(ExpectedConditions.visibilityOf(serviceMetaInput));
+
+        WebElement textBox = serviceMetaInput.findElement(By.tagName("input"));
+        textBox.sendKeys(keywords);
+    }
+
+    public void inputMetaDescription(String description) {
+        wait.until(ExpectedConditions.visibilityOf(serviceMetaDescription));
+        serviceMetaDescription.sendKeys(description);
     }
 
     @Override
