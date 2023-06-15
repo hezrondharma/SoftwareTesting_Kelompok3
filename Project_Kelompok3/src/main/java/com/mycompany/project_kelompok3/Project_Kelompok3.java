@@ -31,7 +31,10 @@ public class Project_Kelompok3 {
 
     public static void main(String[] args) {
 //        System.setProperty("webdriver.chrome.driver", "D:\\ChromeDriver\\chromedriver.exe");
-
+        System.setProperty(
+                "webdriver.chrome.driver", 
+                "D:\\kuliah\\SM6\\soft test\\chromedriver\\chromedriver.exe"
+        );
        String[][] data = null;
        WebDriver driver = new ChromeDriver();
 
