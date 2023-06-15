@@ -4,6 +4,7 @@
 
 package com.mycompany.project_kelompok3;
 
+import com.mycompany.project_kelompok3.scripts.AboutPage;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,6 +16,8 @@ import java.util.concurrent.TimeUnit;
 
 import com.mycompany.project_kelompok3.scripts.HomePage;
 import com.mycompany.project_kelompok3.scripts.ServiceAdminPageScript;
+import java.util.HashSet;
+import java.util.Set;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -31,7 +34,8 @@ public class Project_Kelompok3 {
 
     public static void main(String[] args) {
 //        System.setProperty("webdriver.chrome.driver", "D:\\ChromeDriver\\chromedriver.exe");
-
+       System.setProperty("webdriver.chrome.driver", "D:\\Materi Kuliah Semester 10\\Software Testing\\chromedriver_win32\\chromedriver.exe");
+        
        String[][] data = null;
        WebDriver driver = new ChromeDriver();
 
@@ -319,5 +323,7 @@ public class Project_Kelompok3 {
 
         HomePage homePage = new HomePage();
         homePage.run(driver);
+        AboutPage aboutPage = new AboutPage();
+        aboutPage.run(driver);
     }
 }
