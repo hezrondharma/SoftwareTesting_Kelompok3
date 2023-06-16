@@ -20,7 +20,7 @@ public class TeamPage implements ISeleniumScript{
     private String[] names = {
             "Ian Nathaneil William",
             "Jonathan Aurelius",
-            "Hezron",
+            "Hezron Dharmawan",
             "Daniel Christianto"
     };
 
