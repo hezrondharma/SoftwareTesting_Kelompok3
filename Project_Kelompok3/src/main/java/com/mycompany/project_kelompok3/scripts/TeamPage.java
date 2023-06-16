@@ -9,28 +9,67 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import java.io.File;
+import java.net.URL;
+
 /**
  *
  * @author daniel c
  */
 public class TeamPage implements ISeleniumScript{
+    private String[] names = {
+            "Ian Nathaneil William",
+            "Jonathan Aurelius",
+            "Hezron",
+            "Daniel Christianto"
+    };
+
+    private String[] ranks = {
+            "Project Manager",
+            "Developer",
+            "Developer",
+            "Developer"
+    };
+
+    private String[] images = {
+            "/images/Shark.png",
+            "/images/Seele.png",
+            "/images/Nightmare.png",
+            "/images/Fuelled_Determined.png",
+    };
+
     public void run(WebDriver driver){
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollTo(0, arguments[0]);", 4000);
+
         try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            // Handle the exception
+            driver.get("https://gruplm.com/user/team_section?language=en");
+            driver.findElement(By.xpath("//a[@class='btn btn-primary btn-sm float-right']")).click();
+
+            for (int i = 0; i < names.length; i++) {
+                URL imageUrl = this.getClass().getResource(images[i]);
+                if (imageUrl != null) {
+                    File imageFile = new File(imageUrl.getPath());
+                    if (imageFile.exists()) {
+                        driver.findElement(By.cssSelector("#image")).sendKeys(imageFile.getPath());
+                    }
+                }
+
+                js.executeScript("window.scrollTo(0, arguments[0]);", 1000);
+
+                Select language = new Select(driver.findElement(By.xpath("//select[@name='user_language_id']")));
+                language.selectByVisibleText("English");
+                driver.findElement(By.xpath("//input[@name='name']")).sendKeys(names[i]);
+                driver.findElement(By.xpath("//input[@name='rank']")).sendKeys(ranks[i]);
+                driver.findElement(By.xpath("//input[@name='facebook']")).sendKeys("https://www.facebook.com");
+                driver.findElement(By.xpath("//input[@name='instagram']")).sendKeys("https://www.instagram.com");
+                driver.findElement(By.xpath("//button[@class='btn btn-success']")).click();
+
+                Thread.sleep(2500);
+            }
+        } catch (Exception e) {
+            System.out.printf("Error: %s%n", e.getMessage());
+            driver.quit();
         }
-        driver.get("https://gruplm.com/user/team_section?language=en");
-        driver.findElement(By.xpath("//a[@href='https://gruplm.com/user/team_section?language=en']")).click();
-        driver.findElement(By.xpath("//a[@class='btn btn-primary btn-sm float-right']")).click();
-        Select language = new Select(driver.findElement(By.xpath("//select[@name='user_language_id']")));
-        language.selectByVisibleText("English");
-        driver.findElement(By.xpath("//input[@name='name']")).sendKeys("text");
-        driver.findElement(By.xpath("//input[@name='rank']")).sendKeys("1");
-        driver.findElement(By.xpath("input[@name='facebook']")).sendKeys("www.facebook.com");
-        driver.findElement(By.xpath("//input[@name='instagram']")).sendKeys("danielchristianto742.com");
-        driver.findElement(By.xpath("//button[@name='btn btn-success']")).click();
+
     }
 }
