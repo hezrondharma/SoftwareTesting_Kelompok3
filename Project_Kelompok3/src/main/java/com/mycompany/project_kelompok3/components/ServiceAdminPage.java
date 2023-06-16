@@ -126,6 +126,11 @@ public class ServiceAdminPage extends LoadableComponent<ServiceAdminPage> {
         serviceMetaDescription.sendKeys(description);
     }
 
+    public void sumbitService() {
+        wait.until(ExpectedConditions.visibilityOf(serviceSubmitInput));
+        serviceSubmitInput.click();
+    }
+
     @Override
     protected void load() {
         driver.get("https://gruplm.com/user/services?language=en");
