@@ -73,7 +73,8 @@ public class InitialSetupScript implements ISeleniumScript {
 
             driver.findElement(By.cssSelector("span.select2-selection__rendered")).click();
             driver.findElement(By.xpath("//input[@aria-label='Search'][@class='select2-search__field']")).sendKeys("Jakarta");
-            driver.findElement(By.xpath("//li[@class='select2-results__option select2-results__option--selectable select2-results__option--selected select2-results__option--highlighted']")).click();
+            Thread.sleep(1000);
+            driver.findElement(By.xpath("//li[contains(@class, 'select2-results__option select2-results__option--selectable')]")).click();
 
             driver.findElement(By.xpath("//input[@name='base_currency_symbol']")).clear();
             driver.findElement(By.xpath("//input[@name='base_currency_symbol']")).sendKeys("Rp.");

@@ -13,7 +13,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -33,7 +33,7 @@ public class Project_Kelompok3 {
         WebDriver driver = new ChromeDriver();
 
         try {
-            String googleSheetsURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSdInjILdcDpe6Fvxs9C_THdYU5dCgrfl5ivamkFN_OAT6RdHkzeQaF6KzfDtBuphFtEnkhqm6_Mp8H/pub?output=csv";
+            String googleSheetsURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTrVuOEFpjFwqdpCEzHV68KU_lJ1B36rFVqV7yfUnTltfqOqHe1Qf4L12llMIlOrcfEP20RO9vamgAY/pub?gid=0&single=true&output=csv";
             URL url = new URL(googleSheetsURL);
 
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream(), StandardCharsets.UTF_8))) {
@@ -55,8 +55,10 @@ public class Project_Kelompok3 {
         }
 
         // Start the registration automation
-//        RegisterScript registerScript = new RegisterScript(data);
-//        registerScript.run(driver);
+        RegisterScript registerScript = new RegisterScript(data);
+        registerScript.run(driver);
+
+        driver.manage().window().setSize(new Dimension(800, 900));
 
         // Start the login automation
         LoginScript loginScript = new LoginScript(data);

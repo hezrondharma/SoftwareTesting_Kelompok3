@@ -24,6 +24,13 @@ public class RegisterScript implements ISeleniumScript {
         JavascriptExecutor js = (JavascriptExecutor) driver;
 
         driver.get("https://gruplm.com/");
+        driver.manage().window().maximize();
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            // Handle the exception
+        }
 
         js.executeScript("window.scrollTo(0, arguments[0]);", 4000);
         try {
