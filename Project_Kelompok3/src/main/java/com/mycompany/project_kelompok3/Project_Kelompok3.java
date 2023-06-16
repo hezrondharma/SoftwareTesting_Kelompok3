@@ -63,19 +63,19 @@ public class Project_Kelompok3 {
         loginScript.run(driver);
 
         // Start setting the web page such as the logo, the page title name, and other things
-//        InitialSetupScript initialSetupScript = new InitialSetupScript();
-//        initialSetupScript.run(driver);
+        InitialSetupScript initialSetupScript = new InitialSetupScript();
+        initialSetupScript.run(driver);
 
         // Start the home page content automation
-//        HomePage homePage = new HomePage();
-//        homePage.run(driver);
+        HomePage homePage = new HomePage();
+        homePage.run(driver);
 
         // Start the team page content automation
-//        TeamPage teampage = new TeamPage();
-//        teampage.run(driver);
+        TeamPage teampage = new TeamPage();
+        teampage.run(driver);
 
         // The content generation automation for the website builder's service page (Should be executed last since this script maximizes the browser's window)
-//        ServiceAdminPageScript serviceAdminPageScript = new ServiceAdminPageScript();
-//        serviceAdminPageScript.run(driver);
+        ServiceAdminPageScript serviceAdminPageScript = new ServiceAdminPageScript();
+        serviceAdminPageScript.run(driver);
     }
 }
